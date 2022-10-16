@@ -4,6 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import BaseModal from './BaseModal.js';
 import Button from '@mui/material/Button';
+import { Link } from "react-router-dom";
+
 
 
 function App() {
@@ -36,7 +38,8 @@ function App() {
     <Button variant="contained" color="success">
   Success
 </Button>
-            <BaseModal>
+      <Link to="/expenses">Expenses</Link>
+      <BaseModal>
             </BaseModal>
             </>
   );
