@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export default class WeatherService {
-    async getData(config, callback, errorcallback) {
+    async getData() {
         try {
-            const res = await axios.get("https://jsonplaceholder.typicode.com/posts", config)
+            const res = await axios.get("https://jsonplaceholder.typicode.com/posts")
             return res
         } catch (err) {
             console.log("error")
