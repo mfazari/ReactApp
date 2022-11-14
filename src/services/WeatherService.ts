@@ -1,6 +1,7 @@
 import axios from "axios";
+import API from "./API";
 
-export default class WeatherService {
+export default class WeatherService extends API {
     async getData() {
         try {
             const res = await axios.get("https://jsonplaceholder.typicode.com/posts")
