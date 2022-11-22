@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import BaseModal from '../components/UI/modal/BaseModal';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
-import WeatherService from "../services/WeatherService";
+import FinanceService from "../services/FinanceService";
 import {useState} from "react";
 
 
@@ -13,13 +13,14 @@ import {useState} from "react";
 function App() {
     const [movies, setMovies] = useState<any>([]);
 
-    async function getWeather(){
-        const WeatherServe = new WeatherService();
-        const data = await WeatherServe.getData();
-        setMovies(data);
-        console.log(movies);
+    // async function getWeather(){
+    //     const WeatherServe = new FinanceService();
+    //     const data = await WeatherServe.getData();
+    //     setMovies(data);
+    //     console.log(movies);
+    //
+    // }
 
-    }
     return (
         <>
             <Navbar bg="light" expand="lg">

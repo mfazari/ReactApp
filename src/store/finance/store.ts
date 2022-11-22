@@ -1,10 +1,9 @@
-// store.js
 import { configureStore } from "@reduxjs/toolkit";
-import { reducer as counterReducer } from "./counter-slice";
+import { reducer as financeReducer } from "./finance-slice";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer
+        finance: financeReducer
     }
 });
 

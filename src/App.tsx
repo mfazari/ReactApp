@@ -1,32 +1,38 @@
 import Home from "./views/Home";
 import { useSelector, useDispatch } from "react-redux";
-import { actions } from "./store/counter/counter-slice";
-import {RootState} from "./store/counter/store";
+import { getSymbolsAsync } from "./store/finance/finance-slice";
+import {RootState} from "./store/finance/store";
 import Chart from "./views/Chart";
-import WeatherService from "./services/WeatherService";
-import {initializeUseSelector} from "react-redux/es/hooks/useSelector";
 
 const App = () => {
-    const count = useSelector((state: RootState) => state.counter.value);
-    const dispatch = useDispatch();
+    const data:  {id: number, name: string, symbol: string}[] = useSelector((state: RootState) => state.finance.data);
+    const dispatch = useDispatch() as any;
 
-    //const hello = new WeatherService();
-    //hello.getData()
+
+    // testing
+    const handleClick = () => {
+        console.log(data);
+    }
 
 
     return (
         <div>
             <Home></Home>
             <div>
-                <button onClick={() => dispatch(actions.increment())}>Increment</button>
-                <span>{count}</span>
-                <button onClick={() => dispatch(actions.decrement())}>Decrement</button>
-            </div>
-            <div>
                 <Chart></Chart>
             </div>
             <div>
-                <button onClick={() => dispatch(actions.getTodo("5"))}>GET TODO</button>
+                <button onClick={handleClick}>Test</button>
+                <button onClick={() => dispatch(getSymbolsAsync())}>Search</button>
+                <div>
+                    {data.map((item:  {id: number, name: string, symbol: string}) => {
+                        return (
+                            <p key={item.id}>
+                                {item.name}
+                            </p>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
