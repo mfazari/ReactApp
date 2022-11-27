@@ -5,13 +5,13 @@ import {RootState} from "./store/finance/store";
 import Chart from "./views/Chart";
 
 const App = () => {
-    const data:  {id: number, name: string, symbol: string}[] = useSelector((state: RootState) => state.finance.data);
+    const searchSymbolResult:  {id: number, name: string, symbol: string}[] = useSelector((state: RootState) => state.finance.searchSymbolResult);
     const dispatch = useDispatch() as any;
 
 
     // testing
     const handleClick = () => {
-        console.log(data);
+        console.log(searchSymbolResult);
     }
 
 
@@ -25,7 +25,7 @@ const App = () => {
                 <button onClick={handleClick}>Test</button>
                 <button onClick={() => dispatch(getSymbolsAsync())}>Search</button>
                 <div>
-                    {data.map((item:  {id: number, name: string, symbol: string}) => {
+                    {searchSymbolResult.map((item:  {id: number, name: string, symbol: string}) => {
                         return (
                             <p key={item.id}>
                                 {item.name}

@@ -5,11 +5,10 @@ export default class API {
 
     constructor(url: string | null) {
         if (!url) {
-            url = "http://localhost:3000"
+            url = "http://127.0.0.1:5000"
         }
-
+        axios.defaults.baseURL = process.env.REACT_APP_URL;
         this.api = axios.create();
-        axios.defaults.baseURL = process.env.REACT_APP_URL
     }
 
     public get Api() {
