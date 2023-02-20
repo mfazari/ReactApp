@@ -13,7 +13,7 @@ export default class FinanceService extends API {
     }
 
     async getChartDataBySymbol(): Promise<AxiosResponse> {
-        const request = {url: "/v1/manager/stock/aapl"}
+        const request = {url: "/v1/manager/stock/goog"}
         const response: AxiosResponse = await this.Api.get(request.url);
         return response;
     }
