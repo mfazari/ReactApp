@@ -18,10 +18,10 @@ export const slice = createSlice({
     }
 });
 
-export const getSymbolsAsync = () => async (dispatch: any) => {
+export const getSymbolsAsync = (searchName: string) => async (dispatch: any) => {
     try {
         const FinanceServe = new FinanceService();
-        const response = await FinanceServe.getSymbolsByName();
+        const response = await FinanceServe.getSymbolsByName(searchName);
         dispatch(getSymbols(response.data));
     } catch (err) {
         // @ts-ignore
@@ -29,10 +29,11 @@ export const getSymbolsAsync = () => async (dispatch: any) => {
     }
 };
 
-export const getChartDataBySymbolAsync = () => async (dispatch: any) => {
+export const getChartDataBySymbolAsync = (searchName: string) => async (dispatch: any) => {
     try {
+        console.log(searchName);
         const FinanceServe = new FinanceService();
-        const response = await FinanceServe.getChartDataBySymbol();
+        const response = await FinanceServe.getChartDataBySymbol(searchName);
         dispatch(getChartDataBySymbol(response.data));
     } catch (err) {
         // @ts-ignore

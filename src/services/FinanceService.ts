@@ -6,14 +6,14 @@ export default class FinanceService extends API {
         super(null);
     }
 
-    async getSymbolsByName(): Promise<AxiosResponse> {
-        const request = {url: "/v1/manager/search/apple"}
+    async getSymbolsByName(searchName: string): Promise<AxiosResponse>  {
+        const request = {url: "/v1/manager/search/" + searchName}
         const response: AxiosResponse = await this.Api.get(request.url);
         return response;
     }
 
-    async getChartDataBySymbol(): Promise<AxiosResponse> {
-        const request = {url: "/v1/manager/stock/goog"}
+    async getChartDataBySymbol(searchName: string): Promise<AxiosResponse> {
+        const request = {url: "/v1/manager/stock/" + searchName}
         const response: AxiosResponse = await this.Api.get(request.url);
         return response;
     }

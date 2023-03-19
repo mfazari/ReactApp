@@ -48,12 +48,12 @@ function App() {
                 </Container>
             </Navbar>
             <form
-                className="text-start"
+                className="text-center"
                 autoComplete="off"
             >
                 <div className="row my-5 input-group"
                 >
-                    <div className="col-md-4 text-start">
+                    <div className="col-md-4 text-center">
                         <input
                             type="text"
                             className="form-control"

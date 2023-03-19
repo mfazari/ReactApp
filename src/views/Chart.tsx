@@ -19,6 +19,8 @@ export default function App() {
     const dispatch = useDispatch() as any;
 
     const [lineColor, setLineColor] = useState("#129a74");
+    const [searchName, setSearchName] = useState("");
+
 
     // Test
     const handleClick = () => {
@@ -33,7 +35,7 @@ export default function App() {
     },[]);
 
     async function mount(){
-        await dispatch(getChartDataBySymbolAsync());
+        await dispatch(getChartDataBySymbolAsync(searchName));
         if(!chartDataResult){
             console.log(chartDataResult.data.length);
             let length = chartDataResult.data.length - 1;
@@ -54,6 +56,9 @@ export default function App() {
 
     return (
         <div>
+            <input type="text" value={searchName} onChange={(event) => {
+                setSearchName(event.target.value);
+            }} />
     <ComposedChart
             width={500}
             height={300}
