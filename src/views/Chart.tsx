@@ -56,9 +56,6 @@ export default function App() {
 
     return (
         <div>
-            <input type="text" value={searchName} onChange={(event) => {
-                setSearchName(event.target.value);
-            }} />
     <ComposedChart
             width={500}
             height={300}
@@ -89,9 +86,6 @@ export default function App() {
                 fill="url(#colorUv)"
             />
         </ComposedChart>
-            <div>
-                <button onClick={handleClick}>Test</button>
-            </div>
         </div>
     );
 }

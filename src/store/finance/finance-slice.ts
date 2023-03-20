@@ -6,7 +6,8 @@ export const slice = createSlice({
     name: "finance",
     initialState: {
         searchSymbolResult: [],
-        chartDataResult: []
+        chartDataResult: [],
+        newsDataResult: []
     },
     reducers: {
     getSymbols: (state, action) => {
@@ -14,6 +15,9 @@ export const slice = createSlice({
     },
     getChartDataBySymbol: (state, action) => {
         state.chartDataResult = action.payload;
+    },
+    getNewsBySymbol: (state, action) => {
+        state.newsDataResult = action.payload;
     }
     }
 });
@@ -41,6 +45,17 @@ export const getChartDataBySymbolAsync = (searchName: string) => async (dispatch
     }
 };
 
-export const { getSymbols, getChartDataBySymbol } = slice.actions;
+export const getNewsDataBySymbolAsync = (searchName: string) => async (dispatch: any) => {
+    try {
+        const FinanceServe = new FinanceService();
+        const response = await FinanceServe.getNewsBySymbol(searchName);
+        dispatch(getNewsBySymbol(response.data));
+    } catch (err) {
+        // @ts-ignore
+        throw new Error(err);
+    }
+};
+
+export const { getSymbols, getChartDataBySymbol, getNewsBySymbol } = slice.actions;
 export const actions = slice.actions;
 export const reducer = slice.reducer;

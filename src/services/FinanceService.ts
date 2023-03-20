@@ -17,4 +17,9 @@ export default class FinanceService extends API {
         const response: AxiosResponse = await this.Api.get(request.url);
         return response;
     }
+    async getNewsBySymbol(searchName: string): Promise<AxiosResponse> {
+        const request = {url: "/v1/manager/news/" + searchName}
+        const response: AxiosResponse = await this.Api.get(request.url);
+        return response;
+    }
 }

@@ -2,25 +2,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import BaseModal from '../components/UI/modal/BaseModal';
-import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-import FinanceService from "../services/FinanceService";
 import {useState} from "react";
 
 
 
 function App() {
-    const [movies, setMovies] = useState<any>([]);
-
-    // async function getWeather(){
-    //     const WeatherServe = new FinanceService();
-    //     const data = await WeatherServe.getData();
-    //     setMovies(data);
-    //     console.log(movies);
-    //
-    // }
-
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -47,40 +33,6 @@ function App() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <form
-                className="text-center"
-                autoComplete="off"
-            >
-                <div className="row my-5 input-group"
-                >
-                    <div className="col-md-4 text-center">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="Name"
-                            placeholder="Search"
-                        />
-                    </div>
-                    <div className="col-md-4">
-                        <Button
-                            variant="primary"
-                        >Search</Button>
-                    </div>
-                </div>
-            </form>
-            <table
-                className="table-row-dashed table-row-gray-300"
-            >
-                <thead>
-                <tr className="fw-bold fs-5">
-                    <th scope="col">Results</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
-            <p>{movies}</p>
         </>
     );
 }
